@@ -50,7 +50,7 @@ pytest tests/test_api.py::TestEstacionesEndpoint::test_get_estacoes_status_200 -
 ### `TestEstacionesEndpoint`
 - ✅ Retorna status 200
 - ✅ Estrutura de resposta está correta
-- ✅ Todas as estações obrigatórias presentes (Manaus, Itacoatiara, Parintins, Óbidos, Tefé)
+- ✅ Todos os municípios do Amazonas presentes, além de Óbidos e Santarém como apoio
 
 ### `TestDadosEndpoint`
 - ✅ Retorna status 200

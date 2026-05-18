@@ -1,0 +1,1035 @@
+{
+  "cache": false,
+  "coletado_em": "2026-05-17T16:40:01",
+  "janela": {
+    "id": "2026-05-17T16:00",
+    "coleta_prevista": "2026-05-17T16:00",
+    "proxima_coleta": "2026-05-17T18:00"
+  },
+  "fontes": [
+    {
+      "slug": "ana",
+      "nome": "ANA HidroWebService",
+      "credencial": "necessaria",
+      "configurada": true,
+      "uso": "Base hidrológica principal: cota, chuva e vazão por estação telemétrica.",
+      "coleta": "A cada 2 horas"
+    },
+    {
+      "slug": "inmet",
+      "nome": "INMET Avisos Meteorológicos",
+      "credencial": "nao_necessaria",
+      "configurada": true,
+      "uso": "Avisos de chuva intensa, tempestade e eventos meteorológicos severos.",
+      "coleta": "A cada 2 horas"
+    },
+    {
+      "slug": "cemaden",
+      "nome": "CEMADEN Painel de Alertas",
+      "credencial": "nao_necessaria",
+      "configurada": true,
+      "uso": "Alertas vigentes de risco hidrológico e geológico por município.",
+      "coleta": "A cada 2 horas"
+    },
+    {
+      "slug": "open-meteo",
+      "nome": "Open-Meteo Flood API",
+      "credencial": "nao_necessaria",
+      "configurada": true,
+      "uso": "Previsão complementar de descarga/vazão fluvial por coordenada.",
+      "coleta": "A cada 2 horas"
+    }
+  ],
+  "resumo": {
+    "total": 48,
+    "emergencia": 8,
+    "alerta": 20,
+    "atencao": 20,
+    "fontes_ativas": 4,
+    "municipios_amazonas_monitorados": 62,
+    "estacoes_total": 64
+  },
+  "alertas": [
+    {
+      "id": "ana/sace-beruri-monitoramento hidrológico-2026-05-12",
+      "fonte": "ANA/SACE",
+      "tipo": "Monitoramento Hidrológico",
+      "nivel": "Emergência",
+      "nivel_rank": 4,
+      "titulo": "Beruri em nível de emergência",
+      "descricao": "Cota atual de 19.60 m no Rio Purus. Fonte operacional: sace.",
+      "municipio": "Beruri",
+      "uf": "AM",
+      "inicio": "2026-05-12",
+      "fim": null,
+      "payload": {
+        "cota_m": 19.6,
+        "cota_alerta": 13.5,
+        "rio": "Rio Purus",
+        "fonte_original": "sace"
+      }
+    },
+    {
+      "id": "ana/sace-santarém-monitoramento hidrológico-2026-05-17",
+      "fonte": "ANA/SACE",
+      "tipo": "Monitoramento Hidrológico",
+      "nivel": "Emergência",
+      "nivel_rank": 4,
+      "titulo": "Santarém em nível de emergência",
+      "descricao": "Cota atual de 10.32 m no Rio Amazonas. Fonte operacional: open-meteo.",
+      "municipio": "Santarém",
+      "uf": "PA",
+      "inicio": "2026-05-17",
+      "fim": null,
+      "payload": {
+        "cota_m": 10.324122820684515,
+        "cota_alerta": 8.5,
+        "rio": "Rio Amazonas",
+        "fonte_original": "open-meteo"
+      }
+    },
+    {
+      "id": "ana/sace-barcelos-monitoramento hidrológico-2026-05-17",
+      "fonte": "ANA/SACE",
+      "tipo": "Monitoramento Hidrológico",
+      "nivel": "Emergência",
+      "nivel_rank": 4,
+      "titulo": "Barcelos em nível de emergência",
+      "descricao": "Cota atual de 15.50 m no Rio Negro. Fonte operacional: open-meteo.",
+      "municipio": "Barcelos",
+      "uf": "AM",
+      "inicio": "2026-05-17",
+      "fim": null,
+      "payload": {
+        "cota_m": 15.5,
+        "cota_alerta": 13.5,
+        "rio": "Rio Negro",
+        "fonte_original": "open-meteo"
+      }
+    },
+    {
+      "id": "ana/sace-barreirinha-monitoramento hidrológico-2026-05-17",
+      "fonte": "ANA/SACE",
+      "tipo": "Monitoramento Hidrológico",
+      "nivel": "Emergência",
+      "nivel_rank": 4,
+      "titulo": "Barreirinha em nível de emergência",
+      "descricao": "Cota atual de 16.00 m no Rio Amazonas. Fonte operacional: open-meteo.",
+      "municipio": "Barreirinha",
+      "uf": "AM",
+      "inicio": "2026-05-17",
+      "fim": null,
+      "payload": {
+        "cota_m": 16.0,
+        "cota_alerta": 13.0,
+        "rio": "Rio Amazonas",
+        "fonte_original": "open-meteo"
+      }
+    },
+    {
+      "id": "ana/sace-caapiranga-monitoramento hidrológico-2026-05-17",
+      "fonte": "ANA/SACE",
+      "tipo": "Monitoramento Hidrológico",
+      "nivel": "Emergência",
+      "nivel_rank": 4,
+      "titulo": "Caapiranga em nível de emergência",
+      "descricao": "Cota atual de 16.00 m no Rio Solimões. Fonte operacional: open-meteo.",
+      "municipio": "Caapiranga",
+      "uf": "AM",
+      "inicio": "2026-05-17",
+      "fim": null,
+      "payload": {
+        "cota_m": 16.0,
+        "cota_alerta": 13.0,
+        "rio": "Rio Solimões",
+        "fonte_original": "open-meteo"
+      }
+    },
+    {
+      "id": "ana/sace-santa isabel do rio negro-monitoramento hidrológico-2026-05-17",
+      "fonte": "ANA/SACE",
+      "tipo": "Monitoramento Hidrológico",
+      "nivel": "Emergência",
+      "nivel_rank": 4,
+      "titulo": "Santa Isabel do Rio Negro em nível de emergência",
+      "descricao": "Cota atual de 14.00 m no Rio Negro. Fonte operacional: open-meteo.",
+      "municipio": "Santa Isabel do Rio Negro",
+      "uf": "AM",
+      "inicio": "2026-05-17",
+      "fim": null,
+      "payload": {
+        "cota_m": 14.0,
+        "cota_alerta": 11.5,
+        "rio": "Rio Negro",
+        "fonte_original": "open-meteo"
+      }
+    },
+    {
+      "id": "ana/sace-são sebastião do uatumã-monitoramento hidrológico-2026-05-17",
+      "fonte": "ANA/SACE",
+      "tipo": "Monitoramento Hidrológico",
+      "nivel": "Emergência",
+      "nivel_rank": 4,
+      "titulo": "São Sebastião do Uatumã em nível de emergência",
+      "descricao": "Cota atual de 13.00 m no Rio Uatumã. Fonte operacional: open-meteo.",
+      "municipio": "São Sebastião do Uatumã",
+      "uf": "AM",
+      "inicio": "2026-05-17",
+      "fim": null,
+      "payload": {
+        "cota_m": 13.0,
+        "cota_alerta": 10.5,
+        "rio": "Rio Uatumã",
+        "fonte_original": "open-meteo"
+      }
+    },
+    {
+      "id": "ana/sace-urucará-monitoramento hidrológico-2026-05-17",
+      "fonte": "ANA/SACE",
+      "tipo": "Monitoramento Hidrológico",
+      "nivel": "Emergência",
+      "nivel_rank": 4,
+      "titulo": "Urucará em nível de emergência",
+      "descricao": "Cota atual de 16.00 m no Rio Amazonas. Fonte operacional: open-meteo.",
+      "municipio": "Urucará",
+      "uf": "AM",
+      "inicio": "2026-05-17",
+      "fim": null,
+      "payload": {
+        "cota_m": 16.0,
+        "cota_alerta": 13.0,
+        "rio": "Rio Amazonas",
+        "fonte_original": "open-meteo"
+      }
+    },
+    {
+      "id": "ana/sace-tabatinga-monitoramento hidrológico-2026-05-15",
+      "fonte": "ANA/SACE",
+      "tipo": "Monitoramento Hidrológico",
+      "nivel": "Alerta",
+      "nivel_rank": 3,
+      "titulo": "Tabatinga em nível de alerta",
+      "descricao": "Cota atual de 11.61 m no Rio Solimões. Fonte operacional: sace.",
+      "municipio": "Tabatinga",
+      "uf": "AM",
+      "inicio": "2026-05-15",
+      "fim": null,
+      "payload": {
+        "cota_m": 11.61,
+        "cota_alerta": 11.0,
+        "rio": "Rio Solimões",
+        "fonte_original": "sace"
+      }
+    },
+    {
+      "id": "ana/sace-parintins-monitoramento hidrológico-2026-05-17",
+      "fonte": "ANA/SACE",
+      "tipo": "Monitoramento Hidrológico",
+      "nivel": "Alerta",
+      "nivel_rank": 3,
+      "titulo": "Parintins em nível de alerta",
+      "descricao": "Cota atual de 13.53 m no Rio Amazonas. Fonte operacional: open-meteo.",
+      "municipio": "Parintins",
+      "uf": "AM",
+      "inicio": "2026-05-17",
+      "fim": null,
+      "payload": {
+        "cota_m": 13.526764864221306,
+        "cota_alerta": 11.5,
+        "rio": "Rio Amazonas",
+        "fonte_original": "open-meteo"
+      }
+    },
+    {
+      "id": "ana/sace-tefé-monitoramento hidrológico-2026-05-17",
+      "fonte": "ANA/SACE",
+      "tipo": "Monitoramento Hidrológico",
+      "nivel": "Alerta",
+      "nivel_rank": 3,
+      "titulo": "Tefé em nível de alerta",
+      "descricao": "Cota atual de 15.52 m no Rio Solimões. Fonte operacional: open-meteo.",
+      "municipio": "Tefé",
+      "uf": "AM",
+      "inicio": "2026-05-17",
+      "fim": null,
+      "payload": {
+        "cota_m": 15.524349654070345,
+        "cota_alerta": 14.5,
+        "rio": "Rio Solimões",
+        "fonte_original": "open-meteo"
+      }
+    },
+    {
+      "id": "ana/sace-coari-monitoramento hidrológico-2026-05-17",
+      "fonte": "ANA/SACE",
+      "tipo": "Monitoramento Hidrológico",
+      "nivel": "Alerta",
+      "nivel_rank": 3,
+      "titulo": "Coari em nível de alerta",
+      "descricao": "Cota atual de 15.85 m no Rio Solimões. Fonte operacional: open-meteo.",
+      "municipio": "Coari",
+      "uf": "AM",
+      "inicio": "2026-05-17",
+      "fim": null,
+      "payload": {
+        "cota_m": 15.850282510119854,
+        "cota_alerta": 14.0,
+        "rio": "Rio Solimões",
+        "fonte_original": "open-meteo"
+      }
+    },
+    {
+      "id": "ana/sace-alvarães-monitoramento hidrológico-2026-05-17",
+      "fonte": "ANA/SACE",
+      "tipo": "Monitoramento Hidrológico",
+      "nivel": "Alerta",
+      "nivel_rank": 3,
+      "titulo": "Alvarães em nível de alerta",
+      "descricao": "Cota atual de 11.53 m no Rede hidrográfica local. Fonte operacional: open-meteo.",
+      "municipio": "Alvarães",
+      "uf": "AM",
+      "inicio": "2026-05-17",
+      "fim": null,
+      "payload": {
+        "cota_m": 11.525751138217348,
+        "cota_alerta": 10.5,
+        "rio": "Rede hidrográfica local",
+        "fonte_original": "open-meteo"
+      }
+    },
+    {
+      "id": "ana/sace-anamã-monitoramento hidrológico-2026-05-17",
+      "fonte": "ANA/SACE",
+      "tipo": "Monitoramento Hidrológico",
+      "nivel": "Alerta",
+      "nivel_rank": 3,
+      "titulo": "Anamã em nível de alerta",
+      "descricao": "Cota atual de 14.90 m no Rio Solimões. Fonte operacional: open-meteo.",
+      "municipio": "Anamã",
+      "uf": "AM",
+      "inicio": "2026-05-17",
+      "fim": null,
+      "payload": {
+        "cota_m": 14.896565743014133,
+        "cota_alerta": 13.0,
+        "rio": "Rio Solimões",
+        "fonte_original": "open-meteo"
+      }
+    },
+    {
+      "id": "ana/sace-anori-monitoramento hidrológico-2026-05-17",
+      "fonte": "ANA/SACE",
+      "tipo": "Monitoramento Hidrológico",
+      "nivel": "Alerta",
+      "nivel_rank": 3,
+      "titulo": "Anori em nível de alerta",
+      "descricao": "Cota atual de 14.78 m no Rio Solimões. Fonte operacional: open-meteo.",
+      "municipio": "Anori",
+      "uf": "AM",
+      "inicio": "2026-05-17",
+      "fim": null,
+      "payload": {
+        "cota_m": 14.78011761476549,
+        "cota_alerta": 13.0,
+        "rio": "Rio Solimões",
+        "fonte_original": "open-meteo"
+      }
+    },
+    {
+      "id": "ana/sace-boa vista do ramos-monitoramento hidrológico-2026-05-17",
+      "fonte": "ANA/SACE",
+      "tipo": "Monitoramento Hidrológico",
+      "nivel": "Alerta",
+      "nivel_rank": 3,
+      "titulo": "Boa Vista do Ramos em nível de alerta",
+      "descricao": "Cota atual de 13.65 m no Rio Amazonas. Fonte operacional: open-meteo.",
+      "municipio": "Boa Vista do Ramos",
+      "uf": "AM",
+      "inicio": "2026-05-17",
+      "fim": null,
+      "payload": {
+        "cota_m": 13.65441356539695,
+        "cota_alerta": 13.0,
+        "rio": "Rio Amazonas",
+        "fonte_original": "open-meteo"
+      }
+    },
+    {
+      "id": "ana/sace-codajás-monitoramento hidrológico-2026-05-17",
+      "fonte": "ANA/SACE",
+      "tipo": "Monitoramento Hidrológico",
+      "nivel": "Alerta",
+      "nivel_rank": 3,
+      "titulo": "Codajás em nível de alerta",
+      "descricao": "Cota atual de 13.27 m no Rio Solimões. Fonte operacional: open-meteo.",
+      "municipio": "Codajás",
+      "uf": "AM",
+      "inicio": "2026-05-17",
+      "fim": null,
+      "payload": {
+        "cota_m": 13.273915791415721,
+        "cota_alerta": 13.0,
+        "rio": "Rio Solimões",
+        "fonte_original": "open-meteo"
+      }
+    },
+    {
+      "id": "ana/sace-fonte boa-monitoramento hidrológico-2026-05-17",
+      "fonte": "ANA/SACE",
+      "tipo": "Monitoramento Hidrológico",
+      "nivel": "Alerta",
+      "nivel_rank": 3,
+      "titulo": "Fonte Boa em nível de alerta",
+      "descricao": "Cota atual de 14.63 m no Rio Solimões. Fonte operacional: open-meteo.",
+      "municipio": "Fonte Boa",
+      "uf": "AM",
+      "inicio": "2026-05-17",
+      "fim": null,
+      "payload": {
+        "cota_m": 14.629137600064949,
+        "cota_alerta": 13.0,
+        "rio": "Rio Solimões",
+        "fonte_original": "open-meteo"
+      }
+    },
+    {
+      "id": "ana/sace-japurá-monitoramento hidrológico-2026-05-17",
+      "fonte": "ANA/SACE",
+      "tipo": "Monitoramento Hidrológico",
+      "nivel": "Alerta",
+      "nivel_rank": 3,
+      "titulo": "Japurá em nível de alerta",
+      "descricao": "Cota atual de 11.85 m no Rio Japurá. Fonte operacional: open-meteo.",
+      "municipio": "Japurá",
+      "uf": "AM",
+      "inicio": "2026-05-17",
+      "fim": null,
+      "payload": {
+        "cota_m": 11.846549670402865,
+        "cota_alerta": 10.5,
+        "rio": "Rio Japurá",
+        "fonte_original": "open-meteo"
+      }
+    },
+    {
+      "id": "ana/sace-juruá-monitoramento hidrológico-2026-05-17",
+      "fonte": "ANA/SACE",
+      "tipo": "Monitoramento Hidrológico",
+      "nivel": "Alerta",
+      "nivel_rank": 3,
+      "titulo": "Juruá em nível de alerta",
+      "descricao": "Cota atual de 14.27 m no Rio Juruá. Fonte operacional: open-meteo.",
+      "municipio": "Juruá",
+      "uf": "AM",
+      "inicio": "2026-05-17",
+      "fim": null,
+      "payload": {
+        "cota_m": 14.269694197073106,
+        "cota_alerta": 12.5,
+        "rio": "Rio Juruá",
+        "fonte_original": "open-meteo"
+      }
+    },
+    {
+      "id": "ana/sace-nhamundá-monitoramento hidrológico-2026-05-17",
+      "fonte": "ANA/SACE",
+      "tipo": "Monitoramento Hidrológico",
+      "nivel": "Alerta",
+      "nivel_rank": 3,
+      "titulo": "Nhamundá em nível de alerta",
+      "descricao": "Cota atual de 15.11 m no Rio Amazonas. Fonte operacional: open-meteo.",
+      "municipio": "Nhamundá",
+      "uf": "AM",
+      "inicio": "2026-05-17",
+      "fim": null,
+      "payload": {
+        "cota_m": 15.11145461516821,
+        "cota_alerta": 13.0,
+        "rio": "Rio Amazonas",
+        "fonte_original": "open-meteo"
+      }
+    },
+    {
+      "id": "ana/sace-presidente figueiredo-monitoramento hidrológico-2026-05-17",
+      "fonte": "ANA/SACE",
+      "tipo": "Monitoramento Hidrológico",
+      "nivel": "Alerta",
+      "nivel_rank": 3,
+      "titulo": "Presidente Figueiredo em nível de alerta",
+      "descricao": "Cota atual de 12.40 m no Rede hidrográfica local. Fonte operacional: open-meteo.",
+      "municipio": "Presidente Figueiredo",
+      "uf": "AM",
+      "inicio": "2026-05-17",
+      "fim": null,
+      "payload": {
+        "cota_m": 12.404639293305884,
+        "cota_alerta": 10.5,
+        "rio": "Rede hidrográfica local",
+        "fonte_original": "open-meteo"
+      }
+    },
+    {
+      "id": "ana/sace-rio preto da eva-monitoramento hidrológico-2026-05-17",
+      "fonte": "ANA/SACE",
+      "tipo": "Monitoramento Hidrológico",
+      "nivel": "Alerta",
+      "nivel_rank": 3,
+      "titulo": "Rio Preto da Eva em nível de alerta",
+      "descricao": "Cota atual de 12.06 m no Rede hidrográfica local. Fonte operacional: open-meteo.",
+      "municipio": "Rio Preto da Eva",
+      "uf": "AM",
+      "inicio": "2026-05-17",
+      "fim": null,
+      "payload": {
+        "cota_m": 12.064640783927832,
+        "cota_alerta": 10.5,
+        "rio": "Rede hidrográfica local",
+        "fonte_original": "open-meteo"
+      }
+    },
+    {
+      "id": "ana/sace-silves-monitoramento hidrológico-2026-05-17",
+      "fonte": "ANA/SACE",
+      "tipo": "Monitoramento Hidrológico",
+      "nivel": "Alerta",
+      "nivel_rank": 3,
+      "titulo": "Silves em nível de alerta",
+      "descricao": "Cota atual de 14.77 m no Rio Amazonas. Fonte operacional: open-meteo.",
+      "municipio": "Silves",
+      "uf": "AM",
+      "inicio": "2026-05-17",
+      "fim": null,
+      "payload": {
+        "cota_m": 14.774095407147115,
+        "cota_alerta": 13.0,
+        "rio": "Rio Amazonas",
+        "fonte_original": "open-meteo"
+      }
+    },
+    {
+      "id": "ana/sace-uarini-monitoramento hidrológico-2026-05-17",
+      "fonte": "ANA/SACE",
+      "tipo": "Monitoramento Hidrológico",
+      "nivel": "Alerta",
+      "nivel_rank": 3,
+      "titulo": "Uarini em nível de alerta",
+      "descricao": "Cota atual de 13.75 m no Rio Solimões. Fonte operacional: open-meteo.",
+      "municipio": "Uarini",
+      "uf": "AM",
+      "inicio": "2026-05-17",
+      "fim": null,
+      "payload": {
+        "cota_m": 13.745107452428131,
+        "cota_alerta": 13.0,
+        "rio": "Rio Solimões",
+        "fonte_original": "open-meteo"
+      }
+    },
+    {
+      "id": "ana/sace-urucurituba-monitoramento hidrológico-2026-05-17",
+      "fonte": "ANA/SACE",
+      "tipo": "Monitoramento Hidrológico",
+      "nivel": "Alerta",
+      "nivel_rank": 3,
+      "titulo": "Urucurituba em nível de alerta",
+      "descricao": "Cota atual de 13.84 m no Rio Amazonas. Fonte operacional: open-meteo.",
+      "municipio": "Urucurituba",
+      "uf": "AM",
+      "inicio": "2026-05-17",
+      "fim": null,
+      "payload": {
+        "cota_m": 13.841537399862547,
+        "cota_alerta": 13.0,
+        "rio": "Rio Amazonas",
+        "fonte_original": "open-meteo"
+      }
+    },
+    {
+      "id": "open-meteo-manaus-previsão de vazão-2026-05-17T16:38:21",
+      "fonte": "Open-Meteo",
+      "tipo": "Previsão de Vazão",
+      "nivel": "Alerta",
+      "nivel_rank": 3,
+      "titulo": "Tendência de alta de vazão em Manaus",
+      "descricao": "Modelo indica pico até 51% acima da média recente para a região de Manaus.",
+      "municipio": "Manaus",
+      "uf": "AM",
+      "inicio": null,
+      "fim": null,
+      "payload": {
+        "vazao_atual": 6.82,
+        "vazao_media_7d": 7.8428571428571425,
+        "vazao_max_7d": 11.88,
+        "rio": "Rio Negro"
+      }
+    },
+    {
+      "id": "open-meteo-óbidos-previsão de vazão-2026-05-17T16:38:27",
+      "fonte": "Open-Meteo",
+      "tipo": "Previsão de Vazão",
+      "nivel": "Alerta",
+      "nivel_rank": 3,
+      "titulo": "Tendência de alta de vazão em Óbidos",
+      "descricao": "Modelo indica pico até 62% acima da média recente para a região de Óbidos.",
+      "municipio": "Óbidos",
+      "uf": "PA",
+      "inicio": null,
+      "fim": null,
+      "payload": {
+        "vazao_atual": 2.31,
+        "vazao_media_7d": 2.8485714285714283,
+        "vazao_max_7d": 4.62,
+        "rio": "Rio Amazonas"
+      }
+    },
+    {
+      "id": "ana/sace-manaus-monitoramento hidrológico-2026-05-17",
+      "fonte": "ANA/SACE",
+      "tipo": "Monitoramento Hidrológico",
+      "nivel": "Atenção",
+      "nivel_rank": 2,
+      "titulo": "Manaus em nível de atenção",
+      "descricao": "Cota atual de 27.39 m no Rio Negro. Fonte operacional: sace.",
+      "municipio": "Manaus",
+      "uf": "AM",
+      "inicio": "2026-05-17",
+      "fim": null,
+      "payload": {
+        "cota_m": 27.39,
+        "cota_alerta": 29.0,
+        "rio": "Rio Negro",
+        "fonte_original": "sace"
+      }
+    },
+    {
+      "id": "ana/sace-manacapuru-monitoramento hidrológico-2026-05-17",
+      "fonte": "ANA/SACE",
+      "tipo": "Monitoramento Hidrológico",
+      "nivel": "Atenção",
+      "nivel_rank": 2,
+      "titulo": "Manacapuru em nível de atenção",
+      "descricao": "Cota atual de 18.25 m no Rio Solimões. Fonte operacional: sace.",
+      "municipio": "Manacapuru",
+      "uf": "AM",
+      "inicio": "2026-05-17",
+      "fim": null,
+      "payload": {
+        "cota_m": 18.25,
+        "cota_alerta": 21.0,
+        "rio": "Rio Solimões",
+        "fonte_original": "sace"
+      }
+    },
+    {
+      "id": "ana/sace-itacoatiara-monitoramento hidrológico-2026-05-14",
+      "fonte": "ANA/SACE",
+      "tipo": "Monitoramento Hidrológico",
+      "nivel": "Atenção",
+      "nivel_rank": 2,
+      "titulo": "Itacoatiara em nível de atenção",
+      "descricao": "Cota atual de 13.29 m no Rio Amazonas. Fonte operacional: sace.",
+      "municipio": "Itacoatiara",
+      "uf": "AM",
+      "inicio": "2026-05-14",
+      "fim": null,
+      "payload": {
+        "cota_m": 13.29,
+        "cota_alerta": 14.0,
+        "rio": "Rio Amazonas",
+        "fonte_original": "sace"
+      }
+    },
+    {
+      "id": "ana/sace-óbidos-monitoramento hidrológico-2026-05-14",
+      "fonte": "ANA/SACE",
+      "tipo": "Monitoramento Hidrológico",
+      "nivel": "Atenção",
+      "nivel_rank": 2,
+      "titulo": "Óbidos em nível de atenção",
+      "descricao": "Cota atual de 7.32 m no Rio Amazonas. Fonte operacional: sace.",
+      "municipio": "Óbidos",
+      "uf": "PA",
+      "inicio": "2026-05-14",
+      "fim": null,
+      "payload": {
+        "cota_m": 7.32,
+        "cota_alerta": 9.0,
+        "rio": "Rio Amazonas",
+        "fonte_original": "sace"
+      }
+    },
+    {
+      "id": "ana/sace-são gabriel da cachoeira-monitoramento hidrológico-2026-05-17",
+      "fonte": "ANA/SACE",
+      "tipo": "Monitoramento Hidrológico",
+      "nivel": "Atenção",
+      "nivel_rank": 2,
+      "titulo": "São Gabriel da Cachoeira em nível de atenção",
+      "descricao": "Cota atual de 10.24 m no Rio Negro. Fonte operacional: open-meteo.",
+      "municipio": "São Gabriel da Cachoeira",
+      "uf": "AM",
+      "inicio": "2026-05-17",
+      "fim": null,
+      "payload": {
+        "cota_m": 10.244809740790503,
+        "cota_alerta": 11.0,
+        "rio": "Rio Negro",
+        "fonte_original": "open-meteo"
+      }
+    },
+    {
+      "id": "ana/sace-careiro da várzea-monitoramento hidrológico-2026-05-17",
+      "fonte": "ANA/SACE",
+      "tipo": "Monitoramento Hidrológico",
+      "nivel": "Atenção",
+      "nivel_rank": 2,
+      "titulo": "Careiro da Várzea em nível de atenção",
+      "descricao": "Cota atual de 23.96 m no Rio Amazonas. Fonte operacional: open-meteo.",
+      "municipio": "Careiro da Várzea",
+      "uf": "AM",
+      "inicio": "2026-05-17",
+      "fim": null,
+      "payload": {
+        "cota_m": 23.956338198145637,
+        "cota_alerta": 28.5,
+        "rio": "Rio Amazonas",
+        "fonte_original": "open-meteo"
+      }
+    },
+    {
+      "id": "ana/sace-iranduba-monitoramento hidrológico-2026-05-17",
+      "fonte": "ANA/SACE",
+      "tipo": "Monitoramento Hidrológico",
+      "nivel": "Atenção",
+      "nivel_rank": 2,
+      "titulo": "Iranduba em nível de atenção",
+      "descricao": "Cota atual de 18.26 m no Rio Solimões. Fonte operacional: open-meteo.",
+      "municipio": "Iranduba",
+      "uf": "AM",
+      "inicio": "2026-05-17",
+      "fim": null,
+      "payload": {
+        "cota_m": 18.263058473646637,
+        "cota_alerta": 20.5,
+        "rio": "Rio Solimões",
+        "fonte_original": "open-meteo"
+      }
+    },
+    {
+      "id": "ana/sace-novo airão-monitoramento hidrológico-2026-05-17",
+      "fonte": "ANA/SACE",
+      "tipo": "Monitoramento Hidrológico",
+      "nivel": "Atenção",
+      "nivel_rank": 2,
+      "titulo": "Novo Airão em nível de atenção",
+      "descricao": "Cota atual de 13.38 m no Rio Negro. Fonte operacional: open-meteo.",
+      "municipio": "Novo Airão",
+      "uf": "AM",
+      "inicio": "2026-05-17",
+      "fim": null,
+      "payload": {
+        "cota_m": 13.381942693406073,
+        "cota_alerta": 20.0,
+        "rio": "Rio Negro",
+        "fonte_original": "open-meteo"
+      }
+    },
+    {
+      "id": "ana/sace-maués-monitoramento hidrológico-2026-05-17",
+      "fonte": "ANA/SACE",
+      "tipo": "Monitoramento Hidrológico",
+      "nivel": "Atenção",
+      "nivel_rank": 2,
+      "titulo": "Maués em nível de atenção",
+      "descricao": "Cota atual de 8.09 m no Rio Maués-Açu. Fonte operacional: open-meteo.",
+      "municipio": "Maués",
+      "uf": "AM",
+      "inicio": "2026-05-17",
+      "fim": null,
+      "payload": {
+        "cota_m": 8.089498384148312,
+        "cota_alerta": 9.0,
+        "rio": "Rio Maués-Açu",
+        "fonte_original": "open-meteo"
+      }
+    },
+    {
+      "id": "ana/sace-autazes-monitoramento hidrológico-2026-05-17",
+      "fonte": "ANA/SACE",
+      "tipo": "Monitoramento Hidrológico",
+      "nivel": "Atenção",
+      "nivel_rank": 2,
+      "titulo": "Autazes em nível de atenção",
+      "descricao": "Cota atual de 9.52 m no Rio Madeira. Fonte operacional: open-meteo.",
+      "municipio": "Autazes",
+      "uf": "AM",
+      "inicio": "2026-05-17",
+      "fim": null,
+      "payload": {
+        "cota_m": 9.516917632450186,
+        "cota_alerta": 12.5,
+        "rio": "Rio Madeira",
+        "fonte_original": "open-meteo"
+      }
+    },
+    {
+      "id": "ana/sace-benjamin constant-monitoramento hidrológico-2026-05-17",
+      "fonte": "ANA/SACE",
+      "tipo": "Monitoramento Hidrológico",
+      "nivel": "Atenção",
+      "nivel_rank": 2,
+      "titulo": "Benjamin Constant em nível de atenção",
+      "descricao": "Cota atual de 9.81 m no Rio Solimões. Fonte operacional: open-meteo.",
+      "municipio": "Benjamin Constant",
+      "uf": "AM",
+      "inicio": "2026-05-17",
+      "fim": null,
+      "payload": {
+        "cota_m": 9.813259229785588,
+        "cota_alerta": 13.0,
+        "rio": "Rio Solimões",
+        "fonte_original": "open-meteo"
+      }
+    },
+    {
+      "id": "ana/sace-careiro-monitoramento hidrológico-2026-05-17",
+      "fonte": "ANA/SACE",
+      "tipo": "Monitoramento Hidrológico",
+      "nivel": "Atenção",
+      "nivel_rank": 2,
+      "titulo": "Careiro em nível de atenção",
+      "descricao": "Cota atual de 9.28 m no Rio Amazonas. Fonte operacional: open-meteo.",
+      "municipio": "Careiro",
+      "uf": "AM",
+      "inicio": "2026-05-17",
+      "fim": null,
+      "payload": {
+        "cota_m": 9.281465239362747,
+        "cota_alerta": 13.0,
+        "rio": "Rio Amazonas",
+        "fonte_original": "open-meteo"
+      }
+    },
+    {
+      "id": "ana/sace-itapiranga-monitoramento hidrológico-2026-05-17",
+      "fonte": "ANA/SACE",
+      "tipo": "Monitoramento Hidrológico",
+      "nivel": "Atenção",
+      "nivel_rank": 2,
+      "titulo": "Itapiranga em nível de atenção",
+      "descricao": "Cota atual de 8.95 m no Rio Uatumã. Fonte operacional: open-meteo.",
+      "municipio": "Itapiranga",
+      "uf": "AM",
+      "inicio": "2026-05-17",
+      "fim": null,
+      "payload": {
+        "cota_m": 8.948772696194673,
+        "cota_alerta": 10.5,
+        "rio": "Rio Uatumã",
+        "fonte_original": "open-meteo"
+      }
+    },
+    {
+      "id": "ana/sace-jutaí-monitoramento hidrológico-2026-05-17",
+      "fonte": "ANA/SACE",
+      "tipo": "Monitoramento Hidrológico",
+      "nivel": "Atenção",
+      "nivel_rank": 2,
+      "titulo": "Jutaí em nível de atenção",
+      "descricao": "Cota atual de 12.38 m no Rio Solimões. Fonte operacional: open-meteo.",
+      "municipio": "Jutaí",
+      "uf": "AM",
+      "inicio": "2026-05-17",
+      "fim": null,
+      "payload": {
+        "cota_m": 12.379224428810431,
+        "cota_alerta": 13.0,
+        "rio": "Rio Solimões",
+        "fonte_original": "open-meteo"
+      }
+    },
+    {
+      "id": "ana/sace-manaquiri-monitoramento hidrológico-2026-05-17",
+      "fonte": "ANA/SACE",
+      "tipo": "Monitoramento Hidrológico",
+      "nivel": "Atenção",
+      "nivel_rank": 2,
+      "titulo": "Manaquiri em nível de atenção",
+      "descricao": "Cota atual de 12.48 m no Rio Solimões. Fonte operacional: open-meteo.",
+      "municipio": "Manaquiri",
+      "uf": "AM",
+      "inicio": "2026-05-17",
+      "fim": null,
+      "payload": {
+        "cota_m": 12.480914377323538,
+        "cota_alerta": 13.0,
+        "rio": "Rio Solimões",
+        "fonte_original": "open-meteo"
+      }
+    },
+    {
+      "id": "ana/sace-maraã-monitoramento hidrológico-2026-05-17",
+      "fonte": "ANA/SACE",
+      "tipo": "Monitoramento Hidrológico",
+      "nivel": "Atenção",
+      "nivel_rank": 2,
+      "titulo": "Maraã em nível de atenção",
+      "descricao": "Cota atual de 8.88 m no Rio Japurá. Fonte operacional: open-meteo.",
+      "municipio": "Maraã",
+      "uf": "AM",
+      "inicio": "2026-05-17",
+      "fim": null,
+      "payload": {
+        "cota_m": 8.883148742137548,
+        "cota_alerta": 10.5,
+        "rio": "Rio Japurá",
+        "fonte_original": "open-meteo"
+      }
+    },
+    {
+      "id": "ana/sace-santo antônio do içá-monitoramento hidrológico-2026-05-17",
+      "fonte": "ANA/SACE",
+      "tipo": "Monitoramento Hidrológico",
+      "nivel": "Atenção",
+      "nivel_rank": 2,
+      "titulo": "Santo Antônio do Içá em nível de atenção",
+      "descricao": "Cota atual de 9.24 m no Rio Solimões. Fonte operacional: open-meteo.",
+      "municipio": "Santo Antônio do Içá",
+      "uf": "AM",
+      "inicio": "2026-05-17",
+      "fim": null,
+      "payload": {
+        "cota_m": 9.235727851344537,
+        "cota_alerta": 13.0,
+        "rio": "Rio Solimões",
+        "fonte_original": "open-meteo"
+      }
+    },
+    {
+      "id": "ana/sace-são paulo de olivença-monitoramento hidrológico-2026-05-17",
+      "fonte": "ANA/SACE",
+      "tipo": "Monitoramento Hidrológico",
+      "nivel": "Atenção",
+      "nivel_rank": 2,
+      "titulo": "São Paulo de Olivença em nível de atenção",
+      "descricao": "Cota atual de 10.39 m no Rio Solimões. Fonte operacional: open-meteo.",
+      "municipio": "São Paulo de Olivença",
+      "uf": "AM",
+      "inicio": "2026-05-17",
+      "fim": null,
+      "payload": {
+        "cota_m": 10.386723085203347,
+        "cota_alerta": 13.0,
+        "rio": "Rio Solimões",
+        "fonte_original": "open-meteo"
+      }
+    },
+    {
+      "id": "ana/sace-tapauá-monitoramento hidrológico-2026-05-17",
+      "fonte": "ANA/SACE",
+      "tipo": "Monitoramento Hidrológico",
+      "nivel": "Atenção",
+      "nivel_rank": 2,
+      "titulo": "Tapauá em nível de atenção",
+      "descricao": "Cota atual de 10.97 m no Rio Purus. Fonte operacional: open-meteo.",
+      "municipio": "Tapauá",
+      "uf": "AM",
+      "inicio": "2026-05-17",
+      "fim": null,
+      "payload": {
+        "cota_m": 10.96652385005118,
+        "cota_alerta": 12.5,
+        "rio": "Rio Purus",
+        "fonte_original": "open-meteo"
+      }
+    },
+    {
+      "id": "ana/sace-tonantins-monitoramento hidrológico-2026-05-17",
+      "fonte": "ANA/SACE",
+      "tipo": "Monitoramento Hidrológico",
+      "nivel": "Atenção",
+      "nivel_rank": 2,
+      "titulo": "Tonantins em nível de atenção",
+      "descricao": "Cota atual de 12.85 m no Rio Solimões. Fonte operacional: open-meteo.",
+      "municipio": "Tonantins",
+      "uf": "AM",
+      "inicio": "2026-05-17",
+      "fim": null,
+      "payload": {
+        "cota_m": 12.848899557451382,
+        "cota_alerta": 13.0,
+        "rio": "Rio Solimões",
+        "fonte_original": "open-meteo"
+      }
+    }
+  ],
+  "erros": [],
+  "municipios_monitorados": [
+    "Manaus",
+    "Manacapuru",
+    "Itacoatiara",
+    "Tabatinga",
+    "Beruri",
+    "Parintins",
+    "Tefé",
+    "Coari",
+    "Barcelos",
+    "São Gabriel da Cachoeira",
+    "Careiro da Várzea",
+    "Iranduba",
+    "Lábrea",
+    "Humaitá",
+    "Manicoré",
+    "Borba",
+    "Novo Airão",
+    "Maués",
+    "Alvarães",
+    "Amaturá",
+    "Anamã",
+    "Anori",
+    "Apuí",
+    "Atalaia do Norte",
+    "Autazes",
+    "Barreirinha",
+    "Benjamin Constant",
+    "Boa Vista do Ramos",
+    "Boca do Acre",
+    "Caapiranga",
+    "Canutama",
+    "Carauari",
+    "Careiro",
+    "Codajás",
+    "Eirunepé",
+    "Envira",
+    "Fonte Boa",
+    "Guajará",
+    "Ipixuna",
+    "Itamarati",
+    "Itapiranga",
+    "Japurá",
+    "Juruá",
+    "Jutaí",
+    "Manaquiri",
+    "Maraã",
+    "Nhamundá",
+    "Nova Olinda do Norte",
+    "Novo Aripuanã",
+    "Pauini",
+    "Presidente Figueiredo",
+    "Rio Preto da Eva",
+    "Santa Isabel do Rio Negro",
+    "Santo Antônio do Içá",
+    "São Paulo de Olivença",
+    "São Sebastião do Uatumã",
+    "Silves",
+    "Tapauá",
+    "Tonantins",
+    "Uarini",
+    "Urucará",
+    "Urucurituba"
+  ],
+  "estacoes_apoio_fora_am": [
+    "Santarém",
+    "Óbidos"
+  ]
+}

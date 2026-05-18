@@ -3,7 +3,7 @@ from datetime import datetime, timedelta, date
 
 import pandas as pd
 import requests
-from backend.src.config import TIMEOUT, VAZAO_MINIMA, SACE_BASE_URL
+from backend.src.config import TIMEOUT, VAZAO_MINIMA, SACE_BASE_URL, ANA_BASE_URL, ANA_CPF_CNPJ, ANA_SENHA
 
 logger = logging.getLogger(__name__)
 
@@ -107,6 +107,118 @@ def buscar_cota_sace_horaria(bacia, pm, horas=48):
         return pd.DataFrame()
 
 
+
+# ─────────────────────────────────────────────────────────────────────────────
+# FONTE PRIMÁRIA CONFIGURÁVEL: ANA HidroWebService
+# Autenticação: headers Identificador e Senha em /OAUth/v1.
+# Consulta: /HidroinfoanaSerieTelemetricaAdotada/v1 com Bearer token.
+# ─────────────────────────────────────────────────────────────────────────────
+
+_token_ana_cache = {"token": None, "gerado_em": None}
+
+
+def autenticar_ana():
+    """Autentica na ANA e retorna tokenautenticacao, se disponível."""
+    if not ANA_CPF_CNPJ or not ANA_SENHA:
+        logger.info("Credenciais ANA não configuradas no .env")
+        return None
+
+    token = _token_ana_cache.get("token")
+    gerado_em = _token_ana_cache.get("gerado_em")
+    if token and gerado_em and datetime.now() - gerado_em < timedelta(minutes=50):
+        return token
+
+    url = f"{ANA_BASE_URL.rstrip('/')}/OAUth/v1"
+    try:
+        resp = requests.get(
+            url,
+            timeout=TIMEOUT,
+            headers={"Identificador": ANA_CPF_CNPJ, "Senha": ANA_SENHA, "User-Agent": "FluviAM/1.0"},
+        )
+        resp.raise_for_status()
+        payload = resp.json()
+        items = payload.get("items") or {}
+        if isinstance(items, list) and items:
+            items = items[0]
+        token = items.get("tokenautenticacao") or items.get("tokenAutenticacao") or items.get("token")
+        if token:
+            _token_ana_cache["token"] = token
+            _token_ana_cache["gerado_em"] = datetime.now()
+            return token
+        logger.warning("ANA autenticou, mas não retornou token esperado: %s", payload)
+    except Exception as e:
+        logger.warning("Falha na autenticação ANA: %s", e)
+    return None
+
+
+def buscar_ana_hidroweb(codigo_estacao, dias=30):
+    """
+    Busca série telemétrica adotada na ANA HidroWebService.
+    Retorna DataFrame com: data, cota_m, chuva, vazao.
+    """
+    token = autenticar_ana()
+    if not token:
+        return pd.DataFrame()
+
+    url = f"{ANA_BASE_URL.rstrip('/')}/HidroinfoanaSerieTelemetricaAdotada/v1"
+    params = {
+        "CodigoDaEstacao": str(codigo_estacao),
+        "TipoFiltroData": "DATA_LEITURA",
+        "RangeIntervaloDeBusca": "DIAS_30" if dias <= 30 else "DIAS_60",
+    }
+    try:
+        resp = requests.get(
+            url,
+            params=params,
+            timeout=TIMEOUT,
+            headers={"Authorization": f"Bearer {token}", "User-Agent": "FluviAM/1.0"},
+        )
+        resp.raise_for_status()
+        payload = resp.json()
+        items = payload.get("items") or []
+        if not items:
+            logger.warning("ANA sem itens para estação %s", codigo_estacao)
+            return pd.DataFrame()
+
+        registros = []
+        for item in items:
+            dt = item.get("Data_Hora_Medicao") or item.get("Data_Hora_Medição") or item.get("dataHoraMedicao")
+            cota = item.get("Cota_Adotada") or item.get("cotaAdotada")
+            chuva = item.get("Chuva_Adotada") or item.get("chuvaAdotada")
+            vazao = item.get("Vazao_Adotada") or item.get("vazaoAdotada")
+            try:
+                cota_m = float(str(cota).replace(",", ".")) / 100.0 if cota not in (None, "") else None
+                chuva_v = float(str(chuva).replace(",", ".")) if chuva not in (None, "") else None
+                vazao_v = float(str(vazao).replace(",", ".")) if vazao not in (None, "") else None
+            except ValueError:
+                continue
+            data_hora = pd.to_datetime(dt, errors="coerce")
+            if pd.isna(data_hora) or cota_m is None:
+                continue
+            registros.append({"data_hora": data_hora, "cota_m": cota_m, "chuva": chuva_v, "vazao": vazao_v})
+
+        if not registros:
+            return pd.DataFrame()
+
+        df = pd.DataFrame(registros).sort_values("data_hora")
+        limite = datetime.now() - timedelta(days=dias)
+        df = df[df["data_hora"] >= limite]
+        if df.empty:
+            return pd.DataFrame()
+
+        # Consolida por dia usando última leitura do dia, preservando chuva/vazão média.
+        df["data"] = df["data_hora"].dt.date
+        df_dia = df.groupby("data", as_index=False).agg({
+            "cota_m": "last",
+            "chuva": "mean",
+            "vazao": "mean",
+        })
+        df_dia["cota_m"] = df_dia["cota_m"].round(2)
+        return df_dia.reset_index(drop=True)
+    except Exception as e:
+        logger.warning("Erro ANA HidroWebService estação %s: %s", codigo_estacao, e)
+        return pd.DataFrame()
+
 # ─────────────────────────────────────────────────────────────────────────────
 # FONTE SECUNDÁRIA (fallback): Open-Meteo — vazão modelada
 # ─────────────────────────────────────────────────────────────────────────────
@@ -165,4 +277,3 @@ def buscar_open_meteo(lat, lon, dias=None, q_min=None):
     except Exception as e:
         logger.error(f"Erro Open-Meteo: {e}")
         return pd.DataFrame()
-
